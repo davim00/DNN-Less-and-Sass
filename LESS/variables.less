@@ -1,9 +1,7 @@
 // Main Colors
-
 @black-base: #000;
 @gray: lighten(@black-base, 26.7%);
 @light-gray: lighten(@gray, 33.3%);
-@lighter-gray: lighten(@light-gray, 36.1%);
 @primary: blue;
 @secondary: #f5f5f5;
 @tertiary: #eaeaea;
@@ -11,10 +9,68 @@
 @warning: yellow;
 @success: green;
 
+// Gradient Base Colors
+@primary-gradient-base: #358eea;
+@gray-gradient-base: @secondary;
+@light-gradient-base: #f0f2f1;
+
+
+// Default Border Styles
+@default-border-width: 1px;
+@default-border-type: solid;
+
+
+// Border Radius
+@default-border-radius: 3px;
+
+
 // Text
 @base-font-size: 12px;
-@base-line-height: ceil(@base-font-size * 1.5); /* 18px */
+@base-line-height: ceil(@base-font-size * 1.5); // 18px
 @base-text-color: @gray;
+@disabled-text-color: @light-gray;
+@bold-text-color: darken(@base-text-color, 13.4%);
+@error-text-color: @error;
+
+@help-text-color: @black-base;
+@help-text-background-color: #ff9;
+@help-text-border-color: @help-text-color;
+@help-text-border-width: 1px;
+
+
+// Messages
+@primary-message-background-color: fade(#028bff, 15%);
+@primary-message-border-color: fadein(@primary-message-background-color, 5%);
+@primary-message-border-width: @default-border-width;
+
+@error-message-background-color: fade(@error, 15%);
+@error-message-border-color: fadein(@error-message-background-color, 5%);
+@error-message-border-width: @default-border-width;
+
+@warning-message-background-color: fade(@warning, 15%);
+@warning-message-border-color: #CDB21F;
+@warning-message-border-width: @default-border-width;
+
+@success-message-background-color: fade(#0f0, 15%);
+@success-message-border-color: fadein(@success-message-background-color, 35%);
+@success-message-border-width: @default-border-width;
+
+
 
 // Tables
 @table-border-color: lighten(@light-gray, 22%);
+@table-zebra-background-color: fade(@black-base, 4%);
+@table-row-hover-background-color: fade(#028bff, 15%);
+
+
+//Forms
+@form-text-color: darken(@base-text-color, 6.7%);
+@form-input-text-size: @base-font-size;
+@form-input-padding: 8px;
+@form-input-background-color: #ffffff;
+@form-input-border-color: darken(@form-input-background-color, 21.2%);
+@form-input-radius: @default-border-radius;
+@form-input-shadow-color: fade(#fff, 80%);
+@form-input-inset-shadow-color: fade(#000, 10%);
+@form-disabled-background-color: #ebebeb;
+@form-disabled-border-color: darken(@form-disabled-background-color, 26.7%);
