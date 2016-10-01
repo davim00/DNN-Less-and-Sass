@@ -1,0 +1,28 @@
+/*-------------------------------------*/
+/* MESSAGE STYLES */
+/*-------------------------------------*/
+.dnnFormMessage {
+    display: block;
+    padding: 17px 18px;
+    margin-bottom: 18px;
+    border: @primary-message-border-width @default-border-width @primary-message-border-color; // blue
+    background: @primary-message-background-color; // blue
+    -webkit-border-radius: @default-border-radius;
+    border-radius: @default-border-radius;
+    max-width: 980px;
+
+    &.dnnFormError,
+    &.dnnFormValidationSummary {
+      background-color: @error-message-background-color; // red
+      border-color: @error-message-border-color; // red
+    }
+
+    &.dnnFormWarning {
+      background-color: @warning-message-background-color; // yellow
+      border-color: @warning-message-border-color; // yellow
+    }
+    &.dnnFormSuccess {
+      background-color: @success-message-background-color; // green
+      border-color: @success-message-border-color; // green
+    }
+}

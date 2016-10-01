@@ -1,0 +1,33 @@
+/*-------------------------------------*/
+/* PAGINATION & RESULT STYLES */
+/*-------------------------------------*/
+.dnnResults {
+  float: left;
+  margin-bottom: 0;
+}
+
+.dnnPagination {
+  float: right;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    list-style: none;
+
+    a, span {
+      display: inline-block;
+      padding: 0 5px;
+      text-decoration: none;
+      color: @gray-text-color;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: darken(@gray-text-color, 6.7%);
+    }
+    span {
+      color: darken(@gray-text-color, 6.7%);
+      text-decoration: underline;
+    }
+  }
+}

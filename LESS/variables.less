@@ -2,15 +2,19 @@
 @black-base: #000;
 @gray: lighten(@black-base, 26.7%);
 @light-gray: lighten(@gray, 33.3%);
-@primary: blue;
+@primary: #358eea;
+@primary-fade: fade(#028bff, 15%);
 @secondary: #f5f5f5;
 @tertiary: #eaeaea;
 @error: red;
-@warning: yellow;
-@success: green;
+@error-fade: fade(@error, 15%);
+@warning: #CDB21F;
+@warning-fade: fade(@warning, 15%);
+@success: #0f0;
+@success-fade: fade(@success, 15%);
 
 // Gradient Base Colors
-@primary-gradient-base: #358eea;
+@primary-gradient-base: @primary;
 @gray-gradient-base: @secondary;
 @light-gradient-base: #f0f2f1;
 
@@ -30,6 +34,7 @@
 @base-text-color: @gray;
 @disabled-text-color: @light-gray;
 @bold-text-color: darken(@base-text-color, 13.4%);
+@gray-text-color: darken(@base-text-color, 6.7%);
 @error-text-color: @error;
 
 @help-text-color: @black-base;
@@ -39,19 +44,19 @@
 
 
 // Messages
-@primary-message-background-color: fade(#028bff, 15%);
+@primary-message-background-color: @primary-fade;
 @primary-message-border-color: fadein(@primary-message-background-color, 5%);
 @primary-message-border-width: @default-border-width;
 
-@error-message-background-color: fade(@error, 15%);
+@error-message-background-color: @error-fade;
 @error-message-border-color: fadein(@error-message-background-color, 5%);
 @error-message-border-width: @default-border-width;
 
-@warning-message-background-color: fade(@warning, 15%);
-@warning-message-border-color: #CDB21F;
+@warning-message-background-color: @warning-fade;
+@warning-message-border-color: @warning;
 @warning-message-border-width: @default-border-width;
 
-@success-message-background-color: fade(#0f0, 15%);
+@success-message-background-color: @success-fade;
 @success-message-border-color: fadein(@success-message-background-color, 35%);
 @success-message-border-width: @default-border-width;
 
@@ -59,12 +64,17 @@
 
 // Tables
 @table-border-color: lighten(@light-gray, 22%);
-@table-zebra-background-color: fade(@black-base, 4%);
-@table-row-hover-background-color: fade(#028bff, 15%);
+@table-zebra-background-color: fade(@black-base, 4%); //Alternating rows on some tables
+@table-row-hover-background-color: @primary-fade;
+@table-text-color: @gray-text-color;
+
+// DNN Pagination
+@dnn-pagination-text: @gray-text-color;
+@dnn-pagination-hover: #222;
 
 
 //Forms
-@form-text-color: darken(@base-text-color, 6.7%);
+@form-text-color: @gray-text-color;
 @form-input-text-size: @base-font-size;
 @form-input-padding: 8px;
 @form-input-background-color: #ffffff;
@@ -74,3 +84,126 @@
 @form-input-inset-shadow-color: fade(#000, 10%);
 @form-disabled-background-color: #ebebeb;
 @form-disabled-border-color: darken(@form-disabled-background-color, 26.7%);
+@form-active-background-color: @form-input-background-color;
+@form-active-border-color: fadein(@primary-fade, 35%);
+@form-active-glow: fadeout(@form-active-border-color, 10%);
+@form-required-background-color: fade(darken(@form-input-background-color, 100%), 3%);
+@form-required-border-color: fade(darken(@form-input-background-color, 100%), 10%);
+@form-required-text-color: #777;
+@form-error-label-text-color: fade(@error, 90%);
+@form-error-border-color: fade(@error, 60%);
+@form-error-text-color: fade(@error, 70%);
+
+// DNN Form Buttons
+@button-default-background-color: @tertiary;
+@button-default-border-color: darken(@button-default-background-color, 15.7%);
+@button-default-text-color: @gray-text-color;
+@button-default-border-radius: @default-border-radius;
+@button-vertical-padding: 6px;
+@button-horizontal-padding: 6px;
+@button-bottom-margin: 9px;
+// Tab and login button padding
+@button-tab-vertical-padding: 9px;
+@button-tab-horizontal-padding: 9px;
+// Primary, Secondary and Tertiary Action Legacy Colors
+@button-primary-background: #3792ED;
+@button-priimary-background-hover: #6cb6f3;
+@button-primary-background-active: #1f66be;
+@button-primary-border-color: #0D569E;
+@button-primary-border-hover-color: #0D569E;
+@button-primary-border-active-color: @button-primary-border-hover-color;
+@button-secondary-background: @secondary;
+@button-secondary-background-hover: lighten(@button-secondary-background, 3.5%);
+@button-secondary-background-active: darken(@button-secondary-background, 18.5%);
+@button-tertiary-background: @tertiary;
+@button-tertiary-background-hover: lighten(@button-tertiary-background, 3.1%);
+@button-tertiary-background-active: darken(@button-tertiary-background, 7.1%);
+// Primary, Secondary and Tertiary Text Styles
+@button-primary-text-color: #efefef;
+@button-primary-text-shadow: #185B93;
+@button-primary-text-hover: #fff;
+@button-primary-text-active: @button-primary-text-hover;
+@button-secondary-text-color: @gray-text-color;
+@button-secondary-text-shadow: #ffffff;
+@button-secondary-text-hover: lighten(@button-secondary-text-color, 13.3%);
+@button-secondary-text-active: @button-secondary-text-color;
+@button-tertiary-text-color: @gray-text-color;
+@button-tertiary-text-shadow: none;
+@button-tertiary-text-hover: @button-tertiary-text-color;
+@button-tertiary-text-active: @button-tertiary-text-color;
+
+// Tabs Used in Admin Pages
+@tab-border-color: #c2c2c2;
+@tab-height: 37px;
+@tab-active-background-color: #fff;
+@tab-active-padding: 12px 9px 10px 9px;
+@tab-top-radius: @default-border-radius;
+
+// Login Tab Group
+@login-tab-border-color: #c2c2c2;
+@login-tab-top-radius: @default-border-radius;
+@login-tab-height: 37px;
+@login-tab-selected-background-color: #fff;
+
+// DNN Form Items
+@dnn-form-required-sym: "*";
+@dnn-form-required-color: Red;
+@dnn-form-required-font-size: 16px;
+// Spacing on the right of form labels
+@dnn-label-padding: 20px;
+@dnn-label-margin: 18px;
+// Tooltip for Form Help Icons
+@dnn-form-tooltip-background: fade(#000, 75%);
+@dnn-form-tooltip-text-color: #ddd;
+@dnn-form-tooltip-text-size: 11px;
+@dnn-tooltip-arrow-color: @dnn-form-tooltip-background;
+@dnn-tooltip-error-background: fade(Red, 75%);
+@dnn-tooltip-error-text-color: #fff;
+@dnn-tooltip-error-font-size: 12px;
+@dnn-tooltip-error-arrow-color: @dnn-tooltip-error-background;
+// Radio Button Groups
+@dnn-radio-grp-background: #f0f0f0;
+@dnn-radio-grp-padding: 10px;
+@dnn-radio-grp-margin: 5px;
+
+// Button Dropdowns
+@button-drop-background: #fff;
+@button-drop-gradient-top: @button-drop-background;
+@button-drop-gradient-bottom: #f0f2f1;
+@button-drop-border-radius: @default-border-radius;
+@button-drop-border-color: darken(@button-drop-background, 21.2%);
+@button-drop-hover-background: #e8f1fa;
+@button-drop-hover-color: #000;
+// Button Groups
+@button-grp-background: @button-drop-background;
+@button-grp-gradient-top: @button-grp-background;
+@button-grp-gradient-bottom: @button-drop-gradient-bottom;
+@button-grp-border-radius: @default-border-radius;
+@button-grp-border-color: @button-drop-border-color;
+@button-grp-hover-background: @button-drop-hover-background;
+@button-grp-link-background: @secondary;
+@button-grp-link-text-shadow: 0px 1px 0px #ffffff;
+@button-grp-link-color: @gray-text-color;
+@button-grp-link-active-background: #fff;
+
+// Form Errors
+@dnn-form-error-color: Red;
+@dnn-form-error-border: @dnn-form-error-color;
+
+// Accordian
+@section-head-border: #ddd;
+@section-head-size: 32px;
+@section-head-line-height: 36px;
+@section-head-letter-spacing: -0.03em;
+@section-head-margin-top: 8px;
+@section-head-margin-bottom: 18px;
+@section-head-link-color: @gray-text-color;
+@section-head-link-size: 18px;
+@section-head-link-weight: normal;
+@section-head-link-letter-spacing: normal;
+@section-head-link-hover-color: darken(@section-head-link-color, 6.7%);
+@section-head-link-hover-background: fadeout(@primary-fade, 10%);
+
+// User Profile
+@user-menu-background: #484848;
+@user-menu-hover-background: #70b1c7;

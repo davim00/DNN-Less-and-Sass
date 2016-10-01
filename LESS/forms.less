@@ -1,0 +1,317 @@
+/*-------------------------------------*/
+/* FORM STYLES */
+/*-------------------------------------*/
+
+.dnnFormItem {
+  input[type="text"],
+  select,
+  textarea,
+  input[type="email"],
+  input[type="search"],
+  input[type="password"] {
+    margin-bottom: 18px;
+    padding: 8px;
+    background: @form-input-background-color;
+    border: @default-border-width @default-border-type @form-input-border-color;
+    -webkit-border-radius: @default-border-radius;
+    border-radius: @default-border-radius;
+    -webkit-box-shadow: 0px 1px 0px 0px fade(#fff, 80%), inset 0px 1px 2px 0px fade(#000, 10%);
+    box-shadow: 0px 1px 0px 0px fade(#fff, 80%), inset 0px 1px 2px 0px fade(#000, 10%);
+    color: @gray-text-color;
+    font-size: @base-font-size;
+
+    &:active, &:focus {
+      background: #fff;
+      border: @default-border-width @default-border-type fade(@primary, 50%); // blue
+      -webkit-box-shadow: 0px 0px 3px 0px fade(@primary, 40%);
+      box-shadow: 0px 0px 3px 0px fade(@primary, 40%);
+      color: @gray-text-color;
+    }
+  }
+  input[type="search"] {
+    &active, &:focus {
+      background: @form-active-background-color;
+      border: @default-border-width @default-border-type @form-active-border-color; // blue
+      -webkit-box-shadow: 0px 0px 3px 0px @form-active-glow;
+      box-shadow: 0px 0px 3px 0px @form-active-glow;
+      color: @gray-text-color;
+    }
+  }
+  input,
+  textarea {
+    &.aspNetDisabled {
+      background: @form-disabled-background-color;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-color: @form-disabled-border-color;
+      border-width: @default-border-width;
+    }
+  }
+}
+
+.aspNetDisabled,
+.dnnDisabled {
+  a& {
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+}
+
+// Required Fields
+.required {
+  label:after,
+  legend&:after {
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 9px;
+    padding: 1px 9px;
+    border: @default-border-width @default-border-type @form-required-border-color;
+    border-radius: @default-border-radius;
+    -webkit-border-radius: @default-border-radius;
+    background: @form-required-background-color;
+    content: 'Required';
+    font-weight: normal;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    color: @form-required-text-color;
+  }
+}
+
+/* Error Styles */
+.error {
+  label, legend& {
+    color: @form-error-label-text-color
+  }
+  input[type="text"],
+  select,
+  textarea,
+  input[type="email"],
+  input[type="search"] {
+    border: @default-border-width @default-border-type @form-error-border-color; // opaque red
+    color: @form-error-text-color; // opaque red
+  }
+}
+
+// Form buttons
+.dnnFormButton {
+  display: inline-block;
+  margin-bottom: @button-bottom-margin;
+  cursor: pointer;
+  min-width: 75px;
+  *overflow: visible;
+  border: @default-border-width @default-border-type @button-default-border-color;
+  background: @button-default-background-color;
+  -webkit-border-radius: @button-default-border-radius;
+  border-radius: @button-default-border-radius;
+  color: @button-default-text-color;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.dnnFormItem {
+  button, input[type="button"], input[type="reset"], input[type="submit"] {
+    .dnnFormButton;
+    padding: @button-vertical-padding @button-horizontal-padding;
+  }
+}
+.dnnPrimaryAction,
+.dnnSecondaryAction,
+.dnnTertiaryAction {
+  .dnnFormButton;
+  padding: @button-vertical-padding @button-horizontal-padding;
+}
+ul.dnnAdminTabNav li a,
+.dnnLogin .LoginTabGroup span {
+  .dnnFormButton;
+  padding: 9px 9px;
+}
+
+// Primary Action
+
+.dnnPrimaryAction, .dnnFormItem input[type="submit"], a.dnnPrimaryAction {
+  border-color: @button-primary-border-color; /*dark blue*/
+  background: @button-primary-background;
+  .gradient-base(@primary-gradient-base, spin(desaturate(darken(@primary-gradient-base, 9.6%), 8.9%), -1.9));
+  -webkit-box-shadow: 0px 1px 0px 0px fade(#000, 60%), inset 0px 1px 0px 0px fade(#fff, 40%);
+  box-shadow: 0px 1px 0px 0px fade(#000, 60%), inset 0px 1px 0px 0px fade(#fff, 40%);
+  color: @button-primary-text-color;
+  text-shadow: 0px 1px 0px @button-primary-text-shadow;
+  &:hover {
+    border-color: @button-primary-border-hover-color;
+    background: @button-primary-background-hover; /* Old browsers */
+    .gradient-base(spin(saturate(lighten(@primary-gradiant-base, 12.5%), 3.7%), -3.4), spin(desaturate(darken(@primary-gradiant-base, 2%), 19.8%), 1));
+    color: #fff;
+  }
+  &:active {
+    border-color: @button-primary-border-active-color;
+    background: @button-primary-background-active; /* Old browsers */
+    .gradient-base(spin(desaturate(darken(@primary-gradiant-base, 13%), 9.3%), -2.7), spin(desaturate(darken(@primary-gradiant-base, 3%), 7.3%), 0.5));
+    -webkit-box-shadow: inset 0px 1px 5px 0px fade(#000, 40%);
+    box-shadow: inset 0px 1px 5px 0px fade(#000, 40%);
+    color: #fff;
+  }
+}
+
+.dnnPrimaryAction[disabled] {
+  &,
+  &:hover,
+  &:active {
+    background: #ccc !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    color: #aaa !important;
+    text-shadow: none;
+  }
+}
+
+
+/* Secondary Action */
+.dnnFormItem {
+  button,
+  input[type="button"],
+  input[type="reset"] {
+    .dnnSecondaryActionBase;
+    &:hover {
+      .dnnSecondaryActionBaseHover;
+    }
+    &:active {
+      .dnnSecondaryActionBaseActive;
+    }
+  }
+}
+
+.dnnSecondaryAction {
+  &,
+  a&,
+  ul& li a {
+    .dnnSecondaryActionBase;
+    &:hover {
+      .dnnSecondaryActionBaseHover;
+    }
+    &:active {
+      .dnnSecondaryActionBaseActive;
+    }
+  }
+}
+
+.dnnLogin,
+.LoginTabGroup span {
+  .dnnSecondaryActionBase;
+  &:hover {
+    .dnnSecondaryActionBaseHover;
+  }
+  &:active {
+    .dnnSecondaryActionBaseActive;
+  }
+}
+
+/* Fix some old forge modules use .dnnPrimaryAction and .dnnSecondaryAction in wrong way */
+span.dnnPrimaryAction > input[type="image"],
+span.dnnSecondaryAction > input[type="image"] {
+    display: none;
+}
+
+span.dnnPrimaryAction > a.dnnPrimaryAction,
+span.dnnSecondaryAction > a.dnnSecondaryAction {
+    display: inline;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Tertiary Action */
+.dnnTertiaryAction, a.dnnTertiaryAction {
+    padding: 10px 10px;
+    border: none;
+    background: #eaeaea;
+    color: #333;
+}
+
+    .dnnTertiaryAction:hover, a.dnnTertiaryAction:hover {
+        background: #f2f2f2;
+    }
+
+    .dnnTertiaryAction:active, a.dnnTertiaryAction:active {
+        background: #d8d8d8;
+    }
+
+/* Action Button behind input */
+.dnnFormItem input[type="text"] + a.dnnPrimaryAction,
+.dnnFormItem input[type="text"] + a.dnnSecondaryAction,
+.dnnFormItem input[type="text"] + a.dnnTerriaryAction {
+    margin-left: 5px;
+}
+
+.dnnFormItem input[type="checkbox"] + span,
+.dnnFormItem input[type="radio"] + span {
+    margin: 5px;
+}
+
+/* text style for buttons and link buttons used in the portal admin pages */
+
+/* button style for standard HTML buttons */
+.StandardButton {
+    border: 1px solid blue;
+}
+
+
+/* Re-set default cursor for disabled elements */
+.dnnFormItem button[disabled],
+.dnnFormItem input[disabled] {
+    cursor: default;
+    opacity: 0.5;
+}
+
+
+/* Consistent box sizing and appearance */
+.dnnFormItem input[type="checkbox"],
+.dnnFormItem input[type="radio"] {
+    *width: 13px;
+    *height: 13px; /*why are we using hacks here*/
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dnnFormItem input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+    .dnnFormItem input[type="search"]::-webkit-search-decoration,
+    .dnnFormItem input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
+
+/* Remove inner padding and border in FF3/4: h5bp.com/l */
+.dnnFormItem button::-moz-focus-inner, .dnnFormItem input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/*
+	 * 1. Remove default vertical scrollbar in IE6/7/8/9
+	 * 2. Allow only vertical resizing
+	 */
+
+.dnnFormItem textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+    /* Colors for form validity */
+    .dnnFormItem input:valid, .dnnFormItem textarea:valid {
+    }
+
+    .dnnFormItem input:invalid, .dnnFormItem textarea:invalid {
+        background-color: #f0dddd;
+    }

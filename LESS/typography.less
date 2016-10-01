@@ -1,0 +1,65 @@
+/* Module titles */
+.Head {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  // Some old forge modules use .Head, .SubHead, .SubSubHead in table td, We keep this to be compatible
+  td {
+    .Head, .SubHead, .SubSubHead {
+      display: table-cell;
+      margin-bottom: 0;
+    }
+  }
+
+  input {
+    &[type="image"] + span.Head, &[type="image"] + span.SubHead {
+      display: inline;
+    }
+  }
+
+
+
+// Set text size in modules
+.Normal {
+  .NormalBase;
+  color: @base-text-color;
+  font-weight: normal;
+
+  // disabled text styles
+  &Disabled {
+    .NormalBase;
+    color: @disabled-text-color;
+    font-weight: normal;
+  }
+
+  // text style used for rendered text which requires emphasis
+  &Bold {
+    font-weight: bold;
+    color: @bold-text-color;
+  }
+
+  // text style used for error messages
+  &Red {
+    font-weight: bold;
+    color: red;
+  }
+
+  // text style used for rendered text which should appear deleted
+  &Deleted {
+    .NormalBase;
+    color: @disabled-text-color;
+    text-decoration: line-through;
+    font-weight: normal;
+  }
+}
+
+// text style used for help text rendered by modules
+.Help {
+    padding: 2px;
+    border: @help-text-border-color @default-border-width @default-border-type;
+    background-color: @help-text-background-color;
+    font-weight: normal;
+    font-size: 11px;
+    color: @help-text-color;
+}
