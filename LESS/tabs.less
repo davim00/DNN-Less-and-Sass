@@ -1,0 +1,163 @@
+/*-------------------------------------*/
+/* TABS : JQUERY UI TABS 1.8.14 */
+/*-------------------------------------*/
+
+// Tabs
+.dnnAdminTabNav {
+  ul& {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    width: 100%;
+    height: 37px;
+    border-bottom: @default-border-width @default-border-type #c2c2c2;
+    padding: 0;
+
+    li {
+      float: left;
+      margin-right: 4px;
+      list-style: none;
+      &.ui-tabs-active a{
+        margin-top: -3px;
+        padding: 12px 9px 10px 9px;
+        background: #fff;
+      }
+
+      a {
+        // most styles are inherited from typography.css
+        margin-bottom: 0;
+        border-bottom: 0;
+        box-shadow: none;
+        border-radius: @default-border-radius @default-border-radius 0 0;
+      }
+    }
+  }
+}
+
+// Panels
+.ui-tabs {
+  .ui-tabs-panel {
+    display: block;
+    position: relative;
+  }
+
+  .ui-tabs-hide {
+    display: none;
+  }
+}
+
+/*-------------------------------------*/
+/* LOGIN TAB GROUP */
+/*-------------------------------------*/
+
+.dnnLogin .LoginTabGroup {
+  display: inline-block;
+  width: 100%;
+  height: 37px;
+  margin-left: 0;
+  margin-top: 5px;
+  border-bottom: @default-border-width @default-border-type @button-default-border-color;
+
+  span {
+    margin-right: 4px;
+    margin-bottom: 0;
+    border-bottom: 0 none;
+    border-radius: @default-border-radius @default-border-radius 0 0;
+    box-shadow: none;
+
+    &.LoginTabSelected {
+      margin-top: -3px;
+      padding: 12px 9px 10px;
+      background: none repeat scroll 0 0 #FFFFFF;
+    }
+  }
+}
+
+
+/*-------------------------------------*/
+/* TABS : JQUERY UI RESIZABLE 1.8.14 */
+/*-------------------------------------*/
+
+.dnnForm {
+  .ui-resizable {
+    position: relative;
+  }
+
+  .ui-resizable-handle {
+    position: absolute;
+    display: block;
+    z-index: 99999;
+    font-size: 0.1px;
+  }
+
+  .ui-resizable-disabled,
+  .ui-resizable-autohide {
+    .ui-resizable-handle {
+      display: none;
+    }
+  }
+
+  .ui-resizable-n {
+    cursor: n-resize;
+    height: 7px;
+    width: 100%;
+    top: -5px;
+    left: 0;
+  }
+
+  .ui-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+  }
+
+  .ui-resizable-e {
+    cursor: e-resize;
+    width: 7px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+  }
+
+  .ui-resizable-w {
+    cursor: w-resize;
+    width: 7px;
+    left: -5px;
+    top: 0;
+    height: 100%;
+  }
+
+  .dnnForm .ui-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+  }
+
+  .ui-resizable-sw {
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    bottom: -5px;
+  }
+
+  .ui-resizable-nw {
+    cursor: nw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    top: -5px;
+  }
+
+  .ui-resizable-ne {
+  cursor: ne-resize;
+  width: 9px;
+  height: 9px;
+  right: -5px;
+  top: -5px;
+  }
+}

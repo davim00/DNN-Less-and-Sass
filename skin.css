@@ -1,5 +1,5 @@
-@charset "utf-8";
-/* @import "01/correct4dnn7.css";*/
+@charset 'utf-8';
+/* @import '01/correct4dnn7.css';*/
 /* CSS Document */
 /* ---------------------------------------------------------
 
@@ -305,11 +305,11 @@ img.dnn-scale-img {
 .dnnFormItem input[type="search"]:focus,
 .dnnFormItem input[type="password"]:focus {
   background: #fff;
-  border: 1px solid rgba(53, 142, 234, 0.5);
+  border: 1px solid rgba(53, 142, 234, 0.005);
   box-shadow: 0px 0px 3px 0px rgba(53, 142, 234, 0.4);
   color: #333333;
 }
-.dnnFormItem input[type="search"]active,
+.dnnFormItem input[type="search"]:active,
 .dnnFormItem input[type="search"]:focus {
   background: #ffffff;
   border: 1px solid rgba(2, 139, 255, 0.5);
@@ -391,6 +391,30 @@ legend.error {
   text-align: center;
   padding: 6px 6px;
 }
+.dnnFormItem input[type="text"] + a.dnnPrimaryAction,
+.dnnFormItem input[type="text"] + a.dnnSecondaryAction,
+.dnnFormItem input[type="text"] + a.dnnTertiaryAction {
+  margin-left: 5px;
+}
+.dnnFormItem input[type="checkbox"],
+.dnnFormItem input[type="radio"] {
+  *width: 13px;
+  *height: 13px;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dnnFormItem input[type="checkbox"] + span,
+.dnnFormItem input[type="radio"] + span {
+  margin: 5px;
+}
+.dnnFormItem input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+.dnnFormItem input[type="search"]::-webkit-search-decoration,
+.dnnFormItem input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
 .dnnPrimaryAction,
 .dnnSecondaryAction,
 .dnnTertiaryAction {
@@ -427,7 +451,7 @@ ul.dnnAdminTabNav li a,
 .dnnPrimaryAction,
 .dnnFormItem input[type="submit"],
 a.dnnPrimaryAction {
-  border-color: #0D569E;
+  border-color: #0d569e;
   /*dark blue*/
   background: #3792ed;
   /* FF3.6+ */
@@ -441,12 +465,12 @@ a.dnnPrimaryAction {
   /* W3C */
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.6), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
   color: #efefef;
-  text-shadow: 0px -1px 0px #185b93;
+  text-shadow: 0px 1px 0px #185b93;
 }
 .dnnPrimaryAction:hover,
 .dnnFormItem input[type="submit"]:hover,
 a.dnnPrimaryAction:hover {
-  border-color: #0D569E;
+  border-color: #0d569e;
   background: #6cb6f3;
   /* Old browsers */
   /* FF3.6+ */
@@ -454,6 +478,8 @@ a.dnnPrimaryAction:hover {
   /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, #6cb6f3 0%, #4387d2 100%);
   /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
   background: linear-gradient(top, #6cb6f3 0%, #4387d2 100%);
   /* W3C */
   color: #fff;
@@ -461,15 +487,17 @@ a.dnnPrimaryAction:hover {
 .dnnPrimaryAction:active,
 .dnnFormItem input[type="submit"]:active,
 a.dnnPrimaryAction:active {
-  border-color: #0D569E;
+  border-color: #0d569e;
   background: #1f66be;
   /* Old browsers */
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1f66be), color-stop(100%, #3085e0));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1f74be), color-stop(100%, #3085e0));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #1f66be 0%, #3085e0 100%);
+  background: -webkit-linear-gradient(top, #1f74be 0%, #3085e0 100%);
   /* Chrome10+,Safari5.1+ */
-  background: linear-gradient(top, #1f66be 0%, #3085e0 100%);
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #1f74be 0%, #3085e0 100%);
   /* W3C */
   box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
   color: #fff;
@@ -486,13 +514,8 @@ a.dnnPrimaryAction:active {
 /* Secondary Action */
 .dnnFormItem button,
 .dnnFormItem input[type="button"],
-.dnnFormItem input[type="reset"],
-.dnnSecondaryAction,
-a.dnnSecondaryAction,
-ul.dnnAdminTabNav li a,
-.dnnLogin .LoginTabGroup span {
+.dnnFormItem input[type="reset"] {
   background: #f5f5f5;
-  /* Old browsers */
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #dfdfdf));
   /* Chrome,Safari4+ */
@@ -503,18 +526,13 @@ ul.dnnAdminTabNav li a,
   background: linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%);
   /* W3C */
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4), inset 0px 1px 0px 0px #ffffff;
-  text-shadow: 0px 1px 0px #ffffff;
-  color: #333;
+  text-shadow: #ffffff;
+  color: #333333;
 }
 .dnnFormItem button:hover,
 .dnnFormItem input[type="button"]:hover,
-.dnnFormItem input[type="reset"]:hover,
-.dnnSecondaryAction:hover,
-a.dnnSecondaryAction:hover,
-ul.dnnAdminTabNav li a:hover,
-.dnnLogin .LoginTabGroup span:hover {
+.dnnFormItem input[type="reset"]:hover {
   background: #fefefe;
-  /* Old browsers */
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #e8e8e8));
   /* Chrome,Safari4+ */
@@ -524,26 +542,114 @@ ul.dnnAdminTabNav li a:hover,
   /* IE10+ */
   background: linear-gradient(top, #fefefe 0%, #e8e8e8 100%);
   /* W3C */
-  color: #555;
+  color: #555555;
 }
 .dnnFormItem button:active,
 .dnnFormItem input[type="button"]:active,
-.dnnFormItem input[type="reset"]:active,
-.dnnFormItem input[type="reset"]:active,
-.dnnSecondaryAction:active,
-a.dnnSecondaryAction:active,
-ul.dnnAdminTabNav li a:active {
-  border-color: #999;
+.dnnFormItem input[type="reset"]:active {
+  border-color: #6a6a6a;
   background: #c6c6c6;
-  /* Old browsers */
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c6c6c6), color-stop(100%, #f3f3f3));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c6c6c6), color-stop(100%, #999999));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #c6c6c6 0%, #f3f3f3 100%);
+  background: -webkit-linear-gradient(top, #c6c6c6 0%, #999999 100%);
   /* Chrome10+,Safari5.1+ */
   /* Opera 11.10+ */
   /* IE10+ */
-  background: linear-gradient(top, #c6c6c6 0%, #f3f3f3 100%);
+  background: linear-gradient(top, #c6c6c6 0%, #999999 100%);
+  /* W3C */
+  box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+}
+.dnnSecondaryAction,
+a.dnnSecondaryAction,
+ul.dnnSecondaryAction li a {
+  background: #f5f5f5;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #dfdfdf));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%);
+  /* W3C */
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4), inset 0px 1px 0px 0px #ffffff;
+  text-shadow: #ffffff;
+  color: #333333;
+}
+.dnnSecondaryAction:hover,
+a.dnnSecondaryAction:hover,
+ul.dnnSecondaryAction li a:hover {
+  background: #fefefe;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #e8e8e8));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fefefe 0%, #e8e8e8 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #fefefe 0%, #e8e8e8 100%);
+  /* W3C */
+  color: #555555;
+}
+.dnnSecondaryAction:active,
+a.dnnSecondaryAction:active,
+ul.dnnSecondaryAction li a:active {
+  border-color: #6a6a6a;
+  background: #c6c6c6;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c6c6c6), color-stop(100%, #999999));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #c6c6c6 0%, #999999 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #c6c6c6 0%, #999999 100%);
+  /* W3C */
+  box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+}
+.dnnLogin,
+.LoginTabGroup span {
+  background: #f5f5f5;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #dfdfdf));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%);
+  /* W3C */
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4), inset 0px 1px 0px 0px #ffffff;
+  text-shadow: #ffffff;
+  color: #333333;
+}
+.dnnLogin:hover,
+.LoginTabGroup span:hover {
+  background: #fefefe;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #e8e8e8));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fefefe 0%, #e8e8e8 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #fefefe 0%, #e8e8e8 100%);
+  /* W3C */
+  color: #555555;
+}
+.dnnLogin:active,
+.LoginTabGroup span:active {
+  border-color: #6a6a6a;
+  background: #c6c6c6;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c6c6c6), color-stop(100%, #999999));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #c6c6c6 0%, #999999 100%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(top, #c6c6c6 0%, #999999 100%);
   /* W3C */
   box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
 }
@@ -552,8 +658,8 @@ span.dnnPrimaryAction > input[type="image"],
 span.dnnSecondaryAction > input[type="image"] {
   display: none;
 }
-span.dnnPrimaryAction > a.dnnPrimaryAction,
-span.dnnSecondaryAction > a.dnnSecondaryAction {
+ > a.dnnPrimaryAction,
+ > a.dnnSecondaryAction {
   display: inline;
   background: transparent;
   border: none;
@@ -565,7 +671,7 @@ a.dnnTertiaryAction {
   padding: 10px 10px;
   border: none;
   background: #eaeaea;
-  color: #333;
+  color: #333333;
 }
 .dnnTertiaryAction:hover,
 a.dnnTertiaryAction:hover {
@@ -575,61 +681,164 @@ a.dnnTertiaryAction:hover {
 a.dnnTertiaryAction:active {
   background: #d8d8d8;
 }
-/* Action Button behind input */
-.dnnFormItem input[type="text"] + a.dnnPrimaryAction,
-.dnnFormItem input[type="text"] + a.dnnSecondaryAction,
-.dnnFormItem input[type="text"] + a.dnnTerriaryAction {
-  margin-left: 5px;
-}
-.dnnFormItem input[type="checkbox"] + span,
-.dnnFormItem input[type="radio"] + span {
-  margin: 5px;
-}
-/* text style for buttons and link buttons used in the portal admin pages */
-/* button style for standard HTML buttons */
 .StandardButton {
   border: 1px solid blue;
 }
-/* Re-set default cursor for disabled elements */
 .dnnFormItem button[disabled],
 .dnnFormItem input[disabled] {
   cursor: default;
   opacity: 0.5;
 }
-/* Consistent box sizing and appearance */
-.dnnFormItem input[type="checkbox"],
-.dnnFormItem input[type="radio"] {
-  *width: 13px;
-  *height: 13px;
-  /*why are we using hacks here*/
-  padding: 0;
-  box-sizing: border-box;
-}
-.dnnFormItem input[type="search"] {
-  -webkit-appearance: textfield;
-  box-sizing: content-box;
-}
-.dnnFormItem input[type="search"]::-webkit-search-decoration,
-.dnnFormItem input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-}
-/* Remove inner padding and border in FF3/4: h5bp.com/l */
 .dnnFormItem button::-moz-focus-inner,
 .dnnFormItem input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-/*
-	 * 1. Remove default vertical scrollbar in IE6/7/8/9
-	 * 2. Allow only vertical resizing
-	 */
 .dnnFormItem textarea {
   overflow: auto;
   vertical-align: top;
   resize: vertical;
 }
-/* Colors for form validity */
 .dnnFormItem input:invalid,
 .dnnFormItem textarea:invalid {
   background-color: #f0dddd;
+}
+/*-------------------------------------*/
+/* TAXONOMY */
+/*-------------------------------------*/
+.horizontal ul.categories,
+.vertical ul.categories,
+.horizontal ul.tags,
+.vertical ul.tags {
+  list-style: none;
+}
+/*-------------------------------------*/
+/* TABS : JQUERY UI TABS 1.8.14 */
+/*-------------------------------------*/
+ul.dnnAdminTabNav {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 0;
+  width: 100%;
+  height: 37px;
+  border-bottom: 1px solid #c2c2c2;
+  padding: 0;
+}
+ul.dnnAdminTabNav li {
+  float: left;
+  margin-right: 4px;
+  list-style: none;
+}
+ul.dnnAdminTabNav li.ui-tabs-active a {
+  margin-top: -3px;
+  padding: 12px 9px 10px 9px;
+  background: #fff;
+}
+ul.dnnAdminTabNav li a {
+  margin-bottom: 0;
+  border-bottom: 0;
+  box-shadow: none;
+  border-radius: 3px 3px 0 0;
+}
+.ui-tabs .ui-tabs-panel {
+  display: block;
+  position: relative;
+}
+.ui-tabs .ui-tabs-hide {
+  display: none;
+}
+/*-------------------------------------*/
+/* LOGIN TAB GROUP */
+/*-------------------------------------*/
+.dnnLogin .LoginTabGroup {
+  display: inline-block;
+  width: 100%;
+  height: 37px;
+  margin-left: 0;
+  margin-top: 5px;
+  border-bottom: 1px solid #c2c2c2;
+}
+.dnnLogin .LoginTabGroup span {
+  margin-right: 4px;
+  margin-bottom: 0;
+  border-bottom: 0 none;
+  border-radius: 3px 3px 0 0;
+  box-shadow: none;
+}
+.dnnLogin .LoginTabGroup span.LoginTabSelected {
+  margin-top: -3px;
+  padding: 12px 9px 10px;
+  background: none repeat scroll 0 0 #FFFFFF;
+}
+/*-------------------------------------*/
+/* TABS : JQUERY UI RESIZABLE 1.8.14 */
+/*-------------------------------------*/
+.dnnForm .ui-resizable {
+  position: relative;
+}
+.dnnForm .ui-resizable-handle {
+  position: absolute;
+  display: block;
+  z-index: 99999;
+  font-size: 0.1px;
+}
+.dnnForm .ui-resizable-disabled .ui-resizable-handle,
+.dnnForm .ui-resizable-autohide .ui-resizable-handle {
+  display: none;
+}
+.dnnForm .ui-resizable-n {
+  cursor: n-resize;
+  height: 7px;
+  width: 100%;
+  top: -5px;
+  left: 0;
+}
+.dnnForm .ui-resizable-s {
+  cursor: s-resize;
+  height: 7px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+.dnnForm .ui-resizable-e {
+  cursor: e-resize;
+  width: 7px;
+  right: -5px;
+  top: 0;
+  height: 100%;
+}
+.dnnForm .ui-resizable-w {
+  cursor: w-resize;
+  width: 7px;
+  left: -5px;
+  top: 0;
+  height: 100%;
+}
+.dnnForm .dnnForm .ui-resizable-se {
+  cursor: se-resize;
+  width: 12px;
+  height: 12px;
+  right: 1px;
+  bottom: 1px;
+}
+.dnnForm .ui-resizable-sw {
+  cursor: sw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  bottom: -5px;
+}
+.dnnForm .ui-resizable-nw {
+  cursor: nw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  top: -5px;
+}
+.dnnForm .ui-resizable-ne {
+  cursor: ne-resize;
+  width: 9px;
+  height: 9px;
+  right: -5px;
+  top: -5px;
 }

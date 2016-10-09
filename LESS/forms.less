@@ -117,7 +117,43 @@
     .dnnFormButton;
     padding: @button-vertical-padding @button-horizontal-padding;
   }
+
+  // Action Button behind input
+  input[type="text"] {
+    + a {
+      &.dnnPrimaryAction,
+      &.dnnSecondaryAction,
+      &.dnnTertiaryAction, {
+        margin-left: 5px;
+      }
+    }
+  }
+  // Consistent box sizing and appearance
+  input[type="checkbox"],
+  input[type="radio"] {
+    *width: 13px;
+    *height: 13px; // why are we using hacks here
+    padding: 0;
+    box-sizing: border-box;
+
+    + span {
+    margin: 5px;
+    }
+  }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
 }
+
+
 .dnnPrimaryAction,
 .dnnSecondaryAction,
 .dnnTertiaryAction {
@@ -143,13 +179,13 @@ ul.dnnAdminTabNav li a,
   &:hover {
     border-color: @button-primary-border-hover-color;
     background: @button-primary-background-hover; /* Old browsers */
-    .gradient-base(spin(saturate(lighten(@primary-gradiant-base, 12.5%), 3.7%), -3.4), spin(desaturate(darken(@primary-gradiant-base, 2%), 19.8%), 1));
+    .gradient-base(spin(saturate(lighten(@primary-gradient-base, 12.5%), 3.7%), -3.4), spin(desaturate(darken(@primary-gradient-base, 2%), 19.8%), 1));
     color: #fff;
   }
   &:active {
     border-color: @button-primary-border-active-color;
     background: @button-primary-background-active; /* Old browsers */
-    .gradient-base(spin(desaturate(darken(@primary-gradiant-base, 13%), 9.3%), -2.7), spin(desaturate(darken(@primary-gradiant-base, 3%), 7.3%), 0.5));
+    .gradient-base(spin(desaturate(darken(@primary-gradient-base, 13%), 9.3%), -2.7), spin(desaturate(darken(@primary-gradient-base, 3%), 7.3%), 0.5));
     -webkit-box-shadow: inset 0px 1px 5px 0px fade(#000, 40%);
     box-shadow: inset 0px 1px 5px 0px fade(#000, 40%);
     color: #fff;
@@ -175,12 +211,12 @@ ul.dnnAdminTabNav li a,
   button,
   input[type="button"],
   input[type="reset"] {
-    .dnnSecondaryActionBase;
+    .dnnButtonBase();
     &:hover {
-      .dnnSecondaryActionBaseHover;
+      .dnnButtonBaseHover();
     }
     &:active {
-      .dnnSecondaryActionBaseActive;
+      .dnnButtonBaseActive();
     }
   }
 }
@@ -189,129 +225,100 @@ ul.dnnAdminTabNav li a,
   &,
   a&,
   ul& li a {
-    .dnnSecondaryActionBase;
+    .dnnButtonBase();
     &:hover {
-      .dnnSecondaryActionBaseHover;
+      .dnnButtonBaseHover();
     }
     &:active {
-      .dnnSecondaryActionBaseActive;
+      .dnnButtonBaseActive();
     }
   }
 }
 
 .dnnLogin,
 .LoginTabGroup span {
-  .dnnSecondaryActionBase;
+  .dnnButtonBase();
   &:hover {
-    .dnnSecondaryActionBaseHover;
+    .dnnButtonBaseHover();
   }
   &:active {
-    .dnnSecondaryActionBaseActive;
+    .dnnButtonBaseActive();
   }
 }
 
 /* Fix some old forge modules use .dnnPrimaryAction and .dnnSecondaryAction in wrong way */
-span.dnnPrimaryAction > input[type="image"],
-span.dnnSecondaryAction > input[type="image"] {
-    display: none;
-}
-
-span.dnnPrimaryAction > a.dnnPrimaryAction,
-span.dnnSecondaryAction > a.dnnSecondaryAction {
+.dnnPrimaryAction, .dnnSecondaryAction {
+  span& {
+    > input[type="image"] {
+      display: none;
+    }
+  }
+  > a& {
     display: inline;
     background: transparent;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
 }
 
 /* Tertiary Action */
-.dnnTertiaryAction, a.dnnTertiaryAction {
+.dnnTertiaryAction {
+  &,
+  a& {
     padding: 10px 10px;
     border: none;
-    background: #eaeaea;
-    color: #333;
-}
-
-    .dnnTertiaryAction:hover, a.dnnTertiaryAction:hover {
-        background: #f2f2f2;
+    background: @tertiary;
+    color: @gray-text-color;
+    &:hover {
+      background: lighten(@tertiary, 3.1%);
     }
-
-    .dnnTertiaryAction:active, a.dnnTertiaryAction:active {
-        background: #d8d8d8;
+    &:active {
+      background: darken(@tertiary, 7.1%);
     }
-
-/* Action Button behind input */
-.dnnFormItem input[type="text"] + a.dnnPrimaryAction,
-.dnnFormItem input[type="text"] + a.dnnSecondaryAction,
-.dnnFormItem input[type="text"] + a.dnnTerriaryAction {
-    margin-left: 5px;
+  }
 }
 
-.dnnFormItem input[type="checkbox"] + span,
-.dnnFormItem input[type="radio"] + span {
-    margin: 5px;
-}
 
-/* text style for buttons and link buttons used in the portal admin pages */
+// text style for buttons and link buttons used in the portal admin pages
 
-/* button style for standard HTML buttons */
+// button style for standard HTML buttons
 .StandardButton {
     border: 1px solid blue;
 }
 
 
-/* Re-set default cursor for disabled elements */
-.dnnFormItem button[disabled],
-.dnnFormItem input[disabled] {
+// Re-set default cursor for disabled elements
+.dnnFormItem {
+  button[disabled],
+  input[disabled] {
     cursor: default;
     opacity: 0.5;
-}
+  }
 
-
-/* Consistent box sizing and appearance */
-.dnnFormItem input[type="checkbox"],
-.dnnFormItem input[type="radio"] {
-    *width: 13px;
-    *height: 13px; /*why are we using hacks here*/
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.dnnFormItem input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-    .dnnFormItem input[type="search"]::-webkit-search-decoration,
-    .dnnFormItem input[type="search"]::-webkit-search-cancel-button {
-        -webkit-appearance: none;
+  // Remove inner padding and border in FF3/4: h5bp.com/l
+  button, input {
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
     }
+  }
 
-
-/* Remove inner padding and border in FF3/4: h5bp.com/l */
-.dnnFormItem button::-moz-focus-inner, .dnnFormItem input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-}
-
-/*
-	 * 1. Remove default vertical scrollbar in IE6/7/8/9
-	 * 2. Allow only vertical resizing
-	 */
-
-.dnnFormItem textarea {
+  // 1. Remove default vertical scrollbar in IE6/7/8/9
+  // 2. Allow only vertical resizing
+  textarea {
     overflow: auto;
     vertical-align: top;
     resize: vertical;
+  }
+
+  // Colors for form validity
+  input, textarea {
+    &:valid {
+
+    }
+    &:invalid {
+      background-color: #f0dddd;
+    }
+  }
 }
-
-    /* Colors for form validity */
-    .dnnFormItem input:valid, .dnnFormItem textarea:valid {
-    }
-
-    .dnnFormItem input:invalid, .dnnFormItem textarea:invalid {
-        background-color: #f0dddd;
-    }
